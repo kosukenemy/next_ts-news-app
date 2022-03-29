@@ -60,7 +60,7 @@ export const useFetchFireStore = (collectionName: string, method: CRUDTypes, ite
             console.log(err);
             setIsError(!isError);
           }
-        })();        
+        })();         
     }
 
   },[]);
