@@ -1,8 +1,14 @@
-import axios from 'axios';
+import axios, { AxiosResponse, AxiosError } from 'axios';
 import { useState, useEffect } from 'react';
+// type
+import { GoogleBooksAPIType } from "../../pages/types";
 
-export const useFetchAPI = (url: string) => {
-  const [data, setData] = useState<object>([]);
+function isAxiosError(error: any): error is AxiosError {
+  return !!error.isAxiosError;
+}
+
+export const useFetchAPI = (url: string, query?: string) => {
+  const [data, setData] = useState<GoogleBooksAPIType>();
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -10,8 +16,8 @@ export const useFetchAPI = (url: string) => {
     (async () => {
       try {
         setIsLoading(!isLoading);
-        const res = await axios.get(url);
-        console.log(res, "res");
+
+        const res: AxiosResponse = await axios.get(`${url}/volumes?q=${query}`);
         setData(res.data);
 
         if (res.status === 200) {
@@ -19,8 +25,10 @@ export const useFetchAPI = (url: string) => {
         }
         
       } catch(err) {
-        console.log(err);
-        setIsError(!isError);
+        if (isAxiosError(err)) {
+          console.log(err);
+          setIsError(!isError);
+        }
       }
     })();
   },[]);
