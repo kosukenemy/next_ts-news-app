@@ -33,9 +33,13 @@ export const useFetchAPI = (url: string, query?: string) => {
     })();
   },[query]);
 
-  return {
-    data,
-    isLoading,
-    isError
+  if (query?.length !== 0 || query === undefined ) {
+    return {
+      data,
+      isLoading,
+      isError
+    }
   }
+
+  return {};
 }
