@@ -7,7 +7,6 @@ import { firebaseAdmin } from "../firebase/firebaseAdmin";
 
 // useHooks
 import { useFetchFireStore } from "./hooks/useFetchFireStore";
-import { useFetchAPI } from "./hooks/useFetchAPI";
 
 
 const DashboardPage: NextPage<{ email: string, user:any }> = ({ email, user }) => {
@@ -22,10 +21,6 @@ const DashboardPage: NextPage<{ email: string, user:any }> = ({ email, user }) =
   // useFetchFireStore("books", "POST", { name: "こんにちは" })
 
   // useFetchFireStore("books", "DELETE", { name: "こんにちは!更新です" }, "Aq4GkvnEixL9aV8hvO3k");
-
-
-  const { data } = useFetchAPI("https://www.googleapis.com/books/v1", "道は開ける");
-  console.log(data?.items)
 
   return (
     <div>

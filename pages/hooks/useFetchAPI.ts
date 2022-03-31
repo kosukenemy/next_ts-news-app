@@ -16,7 +16,7 @@ export const useFetchAPI = (url: string, query?: string) => {
     (async () => {
       try {
         setIsLoading(!isLoading);
-
+        if ( query?.length === 0 || query === undefined ) return false;
         const res: AxiosResponse = await axios.get(`${url}/volumes?q=${query}`);
         setData(res.data);
 
@@ -31,7 +31,7 @@ export const useFetchAPI = (url: string, query?: string) => {
         }
       }
     })();
-  },[]);
+  },[query]);
 
   return {
     data,
