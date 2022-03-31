@@ -1,4 +1,4 @@
-import { useFetchAPI } from "../hooks/useFetchAPI";
+import { useFetchAPI } from "./useFetchAPI";
 
 export const useFetchHandler = (url: string, query: string) => {
 
