@@ -1,9 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { useFetchHandler } from "../hooks/ useFetchHandler";
 
 
 const registerNewBooks = () => {
-  const inputVal = useRef<HTMLInputElement>(null);
   const [value, setValue] = useState("");
 
   const data = useFetchHandler("https://www.googleapis.com/books/v1",value)
@@ -13,7 +12,7 @@ const registerNewBooks = () => {
     <form>
       <div>
         <label htmlFor="searchBook">本を検索</label>
-        <input onBlur={(event) => setValue(event.currentTarget.value)} ref={inputVal} type="text" id="searchBook" />
+        <input onBlur={(event) => setValue(event.currentTarget.value)} type="text" id="searchBook" />
       </div>
     </form>
   )
