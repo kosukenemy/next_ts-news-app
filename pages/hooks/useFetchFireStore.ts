@@ -7,6 +7,7 @@ import { collection, getDocs, addDoc, updateDoc ,deleteDoc, doc } from 'firebase
 
 
 export const useFetchFireStore = (collectionName: string, method: CRUDTypes, item?: CreateNewBookItem, id?: string) => {
+  // TODO: setDataの型を修正する
   const [data, setData] = useState<object>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
