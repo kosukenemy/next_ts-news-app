@@ -5,3 +5,9 @@ export type CreateNewBookItem = {
   name?: string;
   description?: string;
 };
+
+export type GoogleBooksAPIType = {
+  items: string[] | undefined;
+  kind: string | undefined;
+  totalItems: number | undefined;
+}

@@ -21,7 +21,6 @@ const DashboardPage: NextPage<{ email: string, user:any }> = ({ email, user }) =
   // useFetchFireStore("books", "POST", { name: "こんにちは" })
 
   // useFetchFireStore("books", "DELETE", { name: "こんにちは!更新です" }, "Aq4GkvnEixL9aV8hvO3k");
-  
 
   return (
     <div>
